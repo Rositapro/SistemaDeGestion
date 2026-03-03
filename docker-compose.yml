@@ -1,5 +1,5 @@
-version: '3.8'
 services:
+  # Servicio 1: La Base de Datos (MariaDB)
   db:
     image: mariadb:latest
     container_name: db_gestion_accesos
@@ -9,3 +9,26 @@ services:
       MYSQL_DATABASE: sistema_web
     ports:
       - "3310:3306"
+    volumes:
+      # Esto carga tus tablas automáticamente al iniciar
+      - ./database.sql:/docker-entrypoint-initdb.d/database.sql
+
+  # Servicio 2: El Servidor Web (PHP + Apache)
+  app:
+    image: php:8.2-apache
+    container_name: app_gestion_accesos
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      # Esto conecta tus archivos PHP con el servidor Docker
+      - ./:/var/www/html/
+    depends_on:
+      - db
+    # Esto instala la extensión necesaria para que PHP hable con MariaDB
+    entrypoint: 
+      - sh
+      - -c
+      - |
+        docker-php-ext-install mysqli && docker-php-ext-enable mysqli
+        apache2-foreground
