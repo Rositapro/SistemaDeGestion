@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  db:
+    image: mariadb:latest
+    container_name: db_gestion_accesos
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: sistema_web
+    ports:
+      - "3310:3306"

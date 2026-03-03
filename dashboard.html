@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Bitácora</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-dark bg-dark mb-4">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Sistema de Gestión de Accesos</span>
+            <a href="index.html" class="btn btn-outline-light btn-sm">Cerrar Sesión</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h3>Historial de Bitácora</h3>
+        <div class="table-responsive bg-white p-3 rounded shadow-sm">
+            <table class="table table-hover">
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Usuario</th>
+                        <th>Fecha y Hora</th>
+                        <th>IP</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Juan Perez</td>
+                        <td>2024-05-20 09:30:15</td>
+                        <td>192.168.1.5</td>
+                        <td><span class="badge bg-success">Correcto</span></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Maria Garcia</td>
+                        <td>2024-05-20 10:15:00</td>
+                        <td>192.168.1.10</td>
+                        <td><span class="badge bg-danger">Fallido</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
